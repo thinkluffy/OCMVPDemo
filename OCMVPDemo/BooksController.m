@@ -34,9 +34,11 @@ const NSNotificationName EVENT_NAME_BOOKS_CHANGED = @"BooksChangedEvent";
 }
 
 - (void)postBooksChangedEvent {
-    [[NSNotificationCenter defaultCenter]
-            postNotificationName:EVENT_NAME_BOOKS_CHANGED
-                          object:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:EVENT_NAME_BOOKS_CHANGED
+         object:self];
+    });
 }
 
 @end
