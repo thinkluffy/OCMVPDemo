@@ -10,6 +10,6 @@
 
 @property (nonatomic, copy) NSString *bookName;
 
-- (instancetype)initWithBookname:(NSString *)bookName;
+- (instancetype)initWithBookName:(NSString *)bookName;
 
 @end

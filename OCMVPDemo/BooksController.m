@@ -6,9 +6,16 @@
 #import "BooksController.h"
 #import "EventBus.h"
 
-const NSNotificationName EVENT_NAME_BOOKS_CHANGED = @"BooksChangedEvent";
-
 @implementation BooksChangedEvent
+
+- (instancetype)initWithMessage:(NSString *)message {
+    self = [super init];
+    if (self) {
+        _message = message;
+    }
+    return self;
+}
+
 @end
 
 @interface BooksController () {
@@ -22,10 +29,10 @@ const NSNotificationName EVENT_NAME_BOOKS_CHANGED = @"BooksChangedEvent";
     if (!_books) {
         NSMutableArray<Book *> *books = [[NSMutableArray<Book *> alloc] init];
 
-        [books addObject:[[Book alloc] initWithBookname:@"Gone with Wind"]];
-        [books addObject:[[Book alloc] initWithBookname:@"The Monkeys"]];
-        [books addObject:[[Book alloc] initWithBookname:@"Three Countries"]];
-        [books addObject:[[Book alloc] initWithBookname:@"The Red Dreams"]];
+        [books addObject:[[Book alloc] initWithBookName:@"Gone with Wind"]];
+        [books addObject:[[Book alloc] initWithBookName:@"The Monkeys"]];
+        [books addObject:[[Book alloc] initWithBookName:@"Three Countries"]];
+        [books addObject:[[Book alloc] initWithBookName:@"The Red Dreams"]];
 
         _books = books;
     }
@@ -34,11 +41,11 @@ const NSNotificationName EVENT_NAME_BOOKS_CHANGED = @"BooksChangedEvent";
 
 - (void)removeBook:(Book *)book {
     [_books removeObject:book];
-    [self postBooksChangedEvent];
+    [self postBooksChangedEvent:@"Rook Removed"];
 }
 
-- (void)postBooksChangedEvent {
-    [[EventBus sharedBus] postEvent:[[BooksChangedEvent alloc] init]];
+- (void)postBooksChangedEvent:(NSString *)message {
+    [[EventBus sharedBus] postEvent:[[BooksChangedEvent alloc] initWithMessage:message]];
 }
 
 @end

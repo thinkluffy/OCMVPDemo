@@ -8,6 +8,7 @@
 
 @protocol IMainView <NSObject>
 
+@required
 - (void)showBooks:(NSArray<Book *> *)books;
 
 @end

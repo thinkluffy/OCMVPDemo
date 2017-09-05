@@ -6,9 +6,12 @@
 #import <Foundation/Foundation.h>
 #import "Book.h"
 
-extern const NSNotificationName EVENT_NAME_BOOKS_CHANGED;
-
 @interface BooksChangedEvent : NSObject
+
+@property (copy, readonly) NSString *message;
+
+- (instancetype)initWithMessage:(NSString *)message;
+
 @end
 
 @interface BooksController : NSObject

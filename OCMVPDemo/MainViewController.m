@@ -15,7 +15,9 @@
 }
 
 - (void)setBooks:(NSArray<Book *> *)books;
+
 - (NSInteger)count;
+
 - (Book *)getBook:(NSInteger)index;
 
 @end
@@ -36,7 +38,7 @@
 
 @end
 
-@interface MainViewController () <UIAlertViewDelegate> {
+@interface MainViewController () {
     id<IMainPresenter> _presenter;
     TableViewDataSource *_tableViewDataSource;
 }

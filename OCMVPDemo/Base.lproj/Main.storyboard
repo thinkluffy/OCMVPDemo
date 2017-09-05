@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-735" y="139"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Books Store-->
         <scene sceneID="kSV-Fy-e9a">
             <objects>
                 <tableViewController id="PLS-CK-Fq8" customClass="MainViewController" sceneMemberID="viewController">
@@ -57,7 +57,7 @@
                             <outlet property="delegate" destination="PLS-CK-Fq8" id="37f-gC-GoH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="x3i-Sb-rav"/>
+                    <navigationItem key="navigationItem" title="Books Store" id="x3i-Sb-rav"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qbD-tU-hBK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

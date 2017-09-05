@@ -57,6 +57,7 @@
 #pragma mark -
 
 - (void)onBooksChangedEvent:(BooksChangedEvent *)booksChangedEvent {
+    NSLog(@"==> onBooksChangedEvent, message: %@", booksChangedEvent.message);
     [self loadBooks];
 }
 

@@ -12,7 +12,7 @@
 
 @implementation Book
 
-- (instancetype)initWithBookname:(NSString *)bookName {
+- (instancetype)initWithBookName:(NSString *)bookName {
     self = [super init];
     if (self) {
         _bookName = bookName;
