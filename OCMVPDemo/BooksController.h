@@ -8,6 +8,9 @@
 
 extern const NSNotificationName EVENT_NAME_BOOKS_CHANGED;
 
+@interface BooksChangedEvent : NSObject
+@end
+
 @interface BooksController : NSObject
 
 - (NSArray<Book *> *)loadBooks;

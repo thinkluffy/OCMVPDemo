@@ -4,8 +4,12 @@
 //
 
 #import "BooksController.h"
+#import "EventBus.h"
 
 const NSNotificationName EVENT_NAME_BOOKS_CHANGED = @"BooksChangedEvent";
+
+@implementation BooksChangedEvent
+@end
 
 @interface BooksController () {
     NSMutableArray<Book *> *_books;
@@ -34,11 +38,7 @@ const NSNotificationName EVENT_NAME_BOOKS_CHANGED = @"BooksChangedEvent";
 }
 
 - (void)postBooksChangedEvent {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter]
-         postNotificationName:EVENT_NAME_BOOKS_CHANGED
-         object:self];
-    });
+    [[EventBus sharedBus] postEvent:[[BooksChangedEvent alloc] init]];
 }
 
 @end

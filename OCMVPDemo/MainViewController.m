@@ -31,7 +31,7 @@
 }
 
 - (Book *)getBook:(NSInteger)index {
-    return _books[index];
+    return _books[(NSUInteger) index];
 }
 
 @end

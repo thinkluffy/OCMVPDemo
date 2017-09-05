@@ -11,6 +11,7 @@
 		628A555BA225FEBD43497985 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A5FB97654C13AFAD16C48 /* MainViewController.m */; };
 		628A560E43AB4E4465252704 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 628A5CCE5FA12FB12CD9E15D /* LaunchScreen.storyboard */; };
 		628A561EDE9BC1E41800FB22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 628A58110C7F67D56C71786B /* Assets.xcassets */; };
+		628A566B632E6D99D684BBED /* EventBus.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A564EE8AAF812AD916190 /* EventBus.m */; };
 		628A578099EB74E9E1304615 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A536858E1071CB6CFE572 /* AppDelegate.m */; };
 		628A5893DC9ECBEFF0716D5A /* OCMVPDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A543B681B294F4FA1F07A /* OCMVPDemoTests.m */; };
 		628A5A1690BE6E58A2199C5D /* BooksController.m in Sources */ = {isa = PBXBuildFile; fileRef = 628A5E6EEF2A05A74178599F /* BooksController.m */; };
@@ -47,6 +48,8 @@
 		628A543B681B294F4FA1F07A /* OCMVPDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCMVPDemoTests.m; sourceTree = "<group>"; };
 		628A5463210EA83CC28E0AAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		628A54D6E097203FE1DD04A1 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		628A55431BCDB08DECD7E3CC /* EventBus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventBus.h; sourceTree = "<group>"; };
+		628A564EE8AAF812AD916190 /* EventBus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventBus.m; sourceTree = "<group>"; };
 		628A56B42C6C859B45CF11AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		628A57EF37B70C767915B954 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
 		628A58110C7F67D56C71786B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -135,6 +138,7 @@
 				628A57EF37B70C767915B954 /* Book.m */,
 				628A542A82CA49B2D6BE5E2A /* BooksController.h */,
 				628A5E6EEF2A05A74178599F /* BooksController.m */,
+				628A5D1E46C4D18D09DC1316 /* EventBus */,
 			);
 			path = OCMVPDemo;
 			sourceTree = "<group>";
@@ -155,6 +159,15 @@
 				628A5DFC840B0CF54D10D028 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		628A5D1E46C4D18D09DC1316 /* EventBus */ = {
+			isa = PBXGroup;
+			children = (
+				628A564EE8AAF812AD916190 /* EventBus.m */,
+				628A55431BCDB08DECD7E3CC /* EventBus.h */,
+			);
+			path = EventBus;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +299,7 @@
 				628A5FDBD2248C27232753CA /* MainPresenter.m in Sources */,
 				628A5190E9557625CCF0A7FA /* Book.m in Sources */,
 				628A5A1690BE6E58A2199C5D /* BooksController.m in Sources */,
+				628A566B632E6D99D684BBED /* EventBus.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

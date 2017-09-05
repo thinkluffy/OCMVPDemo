@@ -5,6 +5,7 @@
 
 #import "MainPresenter.h"
 #import "BooksController.h"
+#import "EventBus.h"
 
 @interface MainPresenter() {
     BooksController *_booksController;
@@ -22,19 +23,19 @@
         _view = view;
         _booksController = [[BooksController alloc] init];
 
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(onBooksChanged:)
-                                                     name:EVENT_NAME_BOOKS_CHANGED
-                                                   object:nil];
+        [[EventBus sharedBus] subscribeEvent:[BooksChangedEvent class]
+                                         for:self
+                                      action:@selector(onBooksChangedEvent:)
+                                          at:MainThread];
     }
     return self;
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[EventBus sharedBus] unsubscribeFor:self];
 }
 
-#pragma mark IMainPresenter
+#pragma mark - IMainPresenter
 
 - (void)loadBooks {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -53,12 +54,9 @@
     });
 }
 
-#pragma mark
+#pragma mark -
 
-- (void)onBooksChanged:(NSNotification *)notification {
-    if (![notification.name isEqualToString:EVENT_NAME_BOOKS_CHANGED]) {
-        return;
-    }
+- (void)onBooksChangedEvent:(BooksChangedEvent *)booksChangedEvent {
     [self loadBooks];
 }
 
