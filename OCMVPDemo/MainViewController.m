@@ -10,9 +10,35 @@
 #import "MainPresenter.h"
 
 
-@interface MainViewController () <UIAlertViewDelegate> {
-    id <IMainPresenter> _presenter;
+@interface TableViewDataSource : NSObject {
     NSArray<Book *> *_books;
+}
+
+- (void)setBooks:(NSArray<Book *> *)books;
+- (NSInteger)count;
+- (Book *)getBook:(NSInteger)index;
+
+@end
+
+@implementation TableViewDataSource
+
+- (void)setBooks:(NSArray<Book *> *)books {
+    _books = books;
+}
+
+- (NSInteger)count {
+    return _books.count;
+}
+
+- (Book *)getBook:(NSInteger)index {
+    return _books[index];
+}
+
+@end
+
+@interface MainViewController () <UIAlertViewDelegate> {
+    id<IMainPresenter> _presenter;
+    TableViewDataSource *_tableViewDataSource;
 }
 
 @end
@@ -23,7 +49,8 @@
     [super viewDidLoad];
 
     _presenter = [[MainPresenter alloc] initWithView:self];
-
+    _tableViewDataSource = [[TableViewDataSource alloc] init];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 
@@ -40,16 +67,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (_books) {
-        return _books.count;
-    }
-    return 0;
+    return [_tableViewDataSource count];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    Book *book = _books[(NSUInteger) indexPath.row];
+    Book *book = [_tableViewDataSource getBook:indexPath.row];
 
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Remove Book?"
                                                                    message:[NSString stringWithFormat:@"Sure to remove the book of \"%@?\"", book.bookName]
@@ -77,7 +101,7 @@
         cell = [[UITableViewCell alloc] init];
     }
 
-    Book *book = _books[(NSUInteger) indexPath.row];
+    Book *book = [_tableViewDataSource getBook:indexPath.row];
     cell.textLabel.text = book.bookName;
 
     return cell;
@@ -86,7 +110,7 @@
 #pragma mark IMainView
 
 - (void)showBooks:(NSArray<Book *> *)books {
-    _books = books;
+    [_tableViewDataSource setBooks:books];
     [self.tableView reloadData];
 }
 

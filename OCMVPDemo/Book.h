@@ -8,7 +8,7 @@
 
 @interface Book : NSObject
 
-@property (atomic, strong) NSString *bookName;
+@property (nonatomic, copy) NSString *bookName;
 
 - (instancetype)initWithBookname:(NSString *)bookName;
 

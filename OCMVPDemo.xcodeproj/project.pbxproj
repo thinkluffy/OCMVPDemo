@@ -129,12 +129,12 @@
 				628A519EB82E637E74B4BF44 /* MainViewController.h */,
 				628A5FB97654C13AFAD16C48 /* MainViewController.m */,
 				628A52A29540B5E87A2C537C /* MainContract.h */,
-				628A5B32B587A89C93D19A15 /* MainPresenter.m */,
 				628A5BF9FF2ED99C373AD441 /* MainPresenter.h */,
-				628A57EF37B70C767915B954 /* Book.m */,
+				628A5B32B587A89C93D19A15 /* MainPresenter.m */,
 				628A54D6E097203FE1DD04A1 /* Book.h */,
-				628A5E6EEF2A05A74178599F /* BooksController.m */,
+				628A57EF37B70C767915B954 /* Book.m */,
 				628A542A82CA49B2D6BE5E2A /* BooksController.h */,
+				628A5E6EEF2A05A74178599F /* BooksController.m */,
 			);
 			path = OCMVPDemo;
 			sourceTree = "<group>";
@@ -511,6 +511,7 @@
 				628A5BE943C5D4ABCACEE374 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		628A5DB44CF90C92609A92EF /* Build configuration list for PBXNativeTarget "OCMVPDemo" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +520,7 @@
 				628A56870830ACDB239336C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		628A5F62BE2498FF52849504 /* Build configuration list for PBXNativeTarget "OCMVPDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +529,7 @@
 				628A5E5D52C5DD1329BDED31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
